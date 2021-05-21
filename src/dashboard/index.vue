@@ -29,8 +29,11 @@ export default {
     //if is authed 
     if (!FakeToken.isAuthed()) {
       this.$router.push({ path: '/login' });
+    } else {
+      //get user info
+
     }
-    
+
   },
 
   methods: {

@@ -9,7 +9,7 @@ import store from './store/index';
 
 //同步状态到vuex
 const unsync = sync(store, router);
-console.log(unsync,'unsync')
+console.log(unsync,'unsync', { moduleName: 'route' })
 
 
 import ElementUI from 'element-ui';

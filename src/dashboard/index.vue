@@ -6,6 +6,9 @@
     <div :style="{ float: 'left', backgroundColor: 'green' }">
       <div>左侧边区</div>
       <div>
+        <label> count:</label>
+        <span>{{ count }}</span>
+        <input type="button" value="+" @click="onPlus()" />
         <input type="button" value="退出" @click="onLogout()" />
       </div>
     </div>
@@ -26,7 +29,7 @@ import { FakeToken } from '@/util';
 export default {
 
   mounted () {
-    
+
     // //if is authed 
     // if (!FakeToken.isAuthed()) {
     //   this.$router.push({ path: '/login' });
@@ -36,8 +39,17 @@ export default {
     // }
 
   },
-
+  computed: {
+    count () {
+      return this.$store.state.user.count
+    }
+  },
   methods: {
+    onPlus () {
+      this.$store.commit({
+        type: 'user/PLUS'
+      });
+    },
     onLogout () {
       FakeToken.removeToken();
       this.$router.push({ path: '/login' });

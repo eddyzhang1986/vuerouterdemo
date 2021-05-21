@@ -12,3 +12,4 @@ export class FakeUser {
         return { success: false, data: null, message: 'login failed' };
     }
 }
+

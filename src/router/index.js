@@ -11,6 +11,7 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/', exact: true, redirect: '/login' },
+    { name: 'loginfsdafsfd', path: '/loginfsdafsfd123', component: () => import('@/login/index.vue') },
     { name: 'login', path: '/login', component: () => import('@/login/index.vue') },
     {
        

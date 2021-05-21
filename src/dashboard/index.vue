@@ -40,7 +40,8 @@ export default {
     if (result.success) {
       console.log(this.$store.state.user.userInfo, '..........userInfo............')
     } else {
-      this.$message(result.message)
+      this.$message(result.message);
+      //redirect ...
     }
 
 

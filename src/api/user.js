@@ -22,7 +22,7 @@ export class FakeUser {
             return {
                 success: true, data: {
                     userinfo: [],
-                    routerinfo
+                    routerinfo:[],
                 }, message: 'login success'
             };
         }

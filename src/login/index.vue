@@ -19,7 +19,7 @@
 
 <script>
 import { FakeUser } from '@/api/user';
-import { LoadingSvc } from '@/util';
+import { LoadingSvc, FakeToken } from '@/util';
 
 
 export default {
@@ -38,8 +38,16 @@ export default {
     async onSubmit () {
       LoadingSvc.show();
       const result = await FakeUser.login(this.userName, this.userPwd);
-      LoadingSvc.hide()
-      console.log(result, 'result')
+      LoadingSvc.hide();
+      console.log(result, 'result');
+      if (result.success) {
+        //set cookie
+        FakeToken.setToken(result.data.token);
+        //redirect
+      }
+      else {
+        this.$message('登陆失败');
+      }
     }
 
   }

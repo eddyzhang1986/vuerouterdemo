@@ -1,4 +1,5 @@
 import { Loading } from 'element-ui';
+import Cookies from 'js-cookie'
 
 
 const options = {
@@ -20,3 +21,20 @@ export class LoadingSvc {
         }
     }
 }
+
+
+
+
+export class FakeToken {
+    static key = "vue-router-demo-user-token"
+    static getToken () {
+        return Cookies.get(FakeToken.key)
+    }
+    static setToken (token) {
+        return Cookies.set(FakeToken.key, token)
+    }
+    static removeToken () {
+        return Cookies.remove(FakeToken.key)
+    }
+}
+

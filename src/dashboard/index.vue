@@ -6,8 +6,12 @@
     <div :style="{ float: 'left', backgroundColor: 'green' }">
       <div>左侧边区</div>
       <div>
-        <label> count:</label>
-        <span>{{ count }}</span>
+        <div>
+          <label> count:</label> <span>{{ count }}</span>
+        </div>
+        <div>
+          <label> path:</label> <span>{{ path }}</span>
+        </div>
         <input type="button" value="+" @click="onPlus()" />
         <input type="button" value="退出" @click="onLogout()" />
       </div>
@@ -44,6 +48,8 @@ export default {
       //redirect ...
     }
 
+    console.log(this.$store.state.route, 'this.$store.state.route..............')
+
 
     // //if is authed 
     // if (!FakeToken.isAuthed()) {
@@ -58,6 +64,9 @@ export default {
   computed: {
     count () {
       return this.$store.state.user.count
+    },
+    path () {
+      return this.$store.state.route.path
     }
   },
   methods: {

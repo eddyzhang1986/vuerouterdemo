@@ -27,6 +27,11 @@ export class LoadingSvc {
 
 export class FakeToken {
     static key = "vue-router-demo-user-token"
+
+    static isAuthed () {
+        return Cookies.get(FakeToken.key) ? true : false;
+    }
+    
     static getToken () {
         return Cookies.get(FakeToken.key)
     }

@@ -33,6 +33,13 @@ export default {
 
   },
 
+  mounted () {
+    //if is authed 
+    if (FakeToken.isAuthed()) {
+      this.$router.push({ path: '/dashboard' });
+    }
+  },
+
   methods: {
 
     async onSubmit () {
@@ -44,6 +51,8 @@ export default {
         //set cookie
         FakeToken.setToken(result.data.token);
         //redirect
+        this.$router.push({ path: '/dashboard' });
+
       }
       else {
         this.$message('登陆失败');

@@ -30,6 +30,8 @@ export default {
 
   mounted () {
 
+    //dispatch getUserInfo
+
     // //if is authed 
     // if (!FakeToken.isAuthed()) {
     //   this.$router.push({ path: '/login' });
@@ -39,6 +41,7 @@ export default {
     // }
 
   },
+  
   computed: {
     count () {
       return this.$store.state.user.count

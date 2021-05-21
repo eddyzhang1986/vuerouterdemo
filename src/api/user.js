@@ -15,13 +15,19 @@ export class FakeUser {
 
     //get user info with router right
     static async getUserInfo (token) {
-
+        
         await sleep(2000);
 
-        return {
-            userinfo: [],
-            routerinfo
+        if (token === 'abracadabra') {
+            return {
+                success: true, data: {
+                    userinfo: [],
+                    routerinfo
+                }, message: 'login success'
+            };
         }
+
+        return { success: false, data: null, message: 'token invalid' };
     }
 }
 

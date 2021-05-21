@@ -26,13 +26,14 @@ import { FakeToken } from '@/util';
 export default {
 
   mounted () {
-    //if is authed 
-    if (!FakeToken.isAuthed()) {
-      this.$router.push({ path: '/login' });
-    } else {
-      //get user info
+    
+    // //if is authed 
+    // if (!FakeToken.isAuthed()) {
+    //   this.$router.push({ path: '/login' });
+    // } else {
+    //   //get user info
 
-    }
+    // }
 
   },
 

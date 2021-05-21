@@ -1,6 +1,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { enchance } from './permission';
 
 Vue.use(VueRouter);
 
@@ -10,11 +11,12 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/', exact: true, redirect: '/login' },
-    { path: '/login', component: () => import('@/login/index.vue') },
+    { name: 'login', path: '/login', component: () => import('@/login/index.vue') },
     {
+       
         path: '/dashboard', component: () => import('@/dashboard/index.vue'),
         children: [
-            { path: '/dashboard', exact: true, redirect: '/dashboard/module1' },
+            {  name:'dashboard-index', path: '/dashboard', exact: true, redirect: '/dashboard/module1' },
             { path: '/dashboard/module1', component: () => import('@/dashboard/module1/index.vue') },
             { path: '/dashboard/module2', component: () => import('@/dashboard/module2/index.vue') }
         ]
@@ -27,6 +29,8 @@ const router = new VueRouter({
     routes: routes
 });
 
+//启用权限
+enchance(router);
 
 export default router;
 

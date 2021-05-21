@@ -1,21 +1,6 @@
 
+import { sleep } from '@/util';
 
-//休眠时间
-export const sleep = (milliSeconds) => {
-    return new Promise((resolve, reject) => {
-        try {
-
-            window.setTimeout(() => {
-                resolve();
-            }, milliSeconds);
-
-        } catch (error) {
-
-            reject(error);
-
-        }
-    })
-}
 
 //User
 export class FakeUser {

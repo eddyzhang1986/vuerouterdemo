@@ -8,7 +8,7 @@ export const enchance = (router) => {
     router.beforeEach(async (to, from, next) => {
 
         console.log(to,'begin');
-        await sleep(5000);
+        //await sleep(5000);
         console.log('complete');
 
         if (to.name !== 'login' && !FakeToken.isAuthed()) {

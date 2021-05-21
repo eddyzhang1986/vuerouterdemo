@@ -23,14 +23,26 @@
 
 <script>
 
-import { FakeToken } from '@/util';
+import { LoadingSvc, FakeToken } from '@/util';
+
+
 
 
 export default {
 
-  mounted () {
+  async mounted () {
 
     //dispatch getUserInfo
+    LoadingSvc.show();
+    const result = await this.$store.dispatch('user/getUserInfo', FakeToken.getToken());
+    LoadingSvc.hide();
+
+    if (result.success) {
+      console.log(this.$store.state.user.userInfo, '..........userInfo............')
+    } else {
+      this.$message(result.message)
+    }
+
 
     // //if is authed 
     // if (!FakeToken.isAuthed()) {
@@ -41,7 +53,7 @@ export default {
     // }
 
   },
-  
+
   computed: {
     count () {
       return this.$store.state.user.count

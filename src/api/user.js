@@ -11,5 +11,17 @@ export class FakeUser {
         }
         return { success: false, data: null, message: 'login failed' };
     }
+
+
+    //get user info with router right
+    static async getUserInfo (token) {
+
+        await sleep(2000);
+
+        return {
+            userinfo: [],
+            routerinfo
+        }
+    }
 }
 

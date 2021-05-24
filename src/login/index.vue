@@ -34,10 +34,6 @@ export default {
   },
 
   mounted () {
-    // //if is authed 
-    // if (FakeToken.isAuthed()) {
-    //   this.$router.push({ path: '/dashboard' });
-    // }
   },
 
   methods: {
@@ -58,6 +54,7 @@ export default {
         this.$message('登陆失败');
       }
     }
+
 
   }
 }

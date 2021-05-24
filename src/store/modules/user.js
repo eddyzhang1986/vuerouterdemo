@@ -4,19 +4,19 @@ import { FakeUser } from '@/api/user';
 const user = {
     namespaced: true,
     state: () => ({
-        count: 2,
-        userInfo: {
+        initialization: false,
+        info: {
+        },
+        routes: [
 
-        }
+        ]
     }),
     mutations: {
-        PLUS (state) {
-            // 变更状态
-            state.count++
-        },
-        //设置用户信息
-        SET_USERINFO (state, userInfo) {
-            state.userInfo = { ...userInfo }
+        //设置用户和路由的信息
+        SET_USERINFO (state, { info, routes }) {
+            state.info = { ...info };
+            state.routes = [...routes];
+            state.initialization = true;
         }
     }
     ,
@@ -24,7 +24,7 @@ const user = {
         async getUserInfo ({ commit }, token) {
             const result = await FakeUser.getUserInfo(token)
             if (result.success) {
-                commit('SET_USERINFO', result.data.userInfo);
+                commit('SET_USERINFO', result.data);
             }
             return result;
         }

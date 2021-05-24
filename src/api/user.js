@@ -15,14 +15,24 @@ export class FakeUser {
 
     //get user info with router right
     static async getUserInfo (token) {
-        
+
         await sleep(2000);
 
         if (token === 'abracadabra') {
             return {
                 success: true, data: {
-                    userinfo: [],
-                    routerinfo:[],
+                    info: {
+                        nick: '我的昵称'
+                    },
+                    routes: [{
+                        path: '/dashboard', component: () => import('@/dashboard/index.vue'),
+                        children: [
+                            { name: 'dashboard-index', path: '/dashboard', exact: true, redirect: '/dashboard/module1' },
+                            { path: '/dashboard/module1', component: () => import('@/dashboard/module1/index.vue') },
+                            { path: '/dashboard/module2', component: () => import('@/dashboard/module2/index.vue') }
+                        ]
+                    },
+                    { path: '*', component: () => import('@/404/index.vue') }],
                 }, message: 'login success'
             };
         }

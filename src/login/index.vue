@@ -39,9 +39,11 @@ export default {
   methods: {
 
     async onSubmit () {
+
       LoadingSvc.show();
+      LoadingSvc.nestOther = true;
+
       const result = await FakeUser.login(this.userName, this.userPwd);
-      LoadingSvc.hide();
       console.log(result, 'result');
       if (result.success) {
         //set cookie
@@ -63,6 +65,10 @@ export default {
       else {
         this.$message('登陆失败');
       }
+
+      LoadingSvc.nestOther = false;
+      LoadingSvc.hide();
+
     }
 
 

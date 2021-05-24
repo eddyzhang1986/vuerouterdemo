@@ -12,12 +12,18 @@ const options = {
 
 export class LoadingSvc {
     static instance;
+    static nestOther = false;//是否嵌套其他loading
     static show () {
-        LoadingSvc.instance = Loading.service(options);
+        if (!LoadingSvc.nestOther) {
+            LoadingSvc.instance = Loading.service(options);
+        }
+
     }
     static hide () {
-        if (LoadingSvc.instance) {
-            LoadingSvc.instance.close();
+        if (!LoadingSvc.nestOther) {
+            if (LoadingSvc.instance) {
+                LoadingSvc.instance.close();
+            }
         }
     }
 }

@@ -51,7 +51,7 @@ export default {
         const userinfo = await this.$store.dispatch('user/getUserInfo', FakeToken.getToken());
         if (userinfo.success) {
           //add dynamic routes
-          this.$router.$addRoutes([...this.$store.state.user.routes]);
+          this.$router.$addRoutes([...userinfo.data.routes]);
           //redirect
           this.$router.push({ path: '/dashboard' });
         } else {

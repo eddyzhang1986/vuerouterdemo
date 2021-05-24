@@ -26,7 +26,7 @@ export const enchance = (router) => {
                     LoadingSvc.hide();
                     if (result.success) {
                         //获取成功设置用户信息和路由参数都可以在这里取到
-                        router.$addRoutes([...store.state.user.routes]);
+                        router.$addRoutes([...result.data.routes]);
 
                         //输出当前路由
                         console.log(router.getRoutes(), 'getRoutes');

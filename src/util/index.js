@@ -23,9 +23,7 @@ export class LoadingSvc {
 }
 
 export const ToJSON = (observable) => {
-
     return JSON.parse(JSON.stringify(observable));
-
 }
 
 

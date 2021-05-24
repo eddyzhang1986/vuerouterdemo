@@ -22,7 +22,11 @@ export class LoadingSvc {
     }
 }
 
+export const ToJSON = (observable) => {
 
+    return JSON.parse(JSON.stringify(observable));
+
+}
 
 
 export class FakeToken {
@@ -31,7 +35,7 @@ export class FakeToken {
     static isAuthed () {
         return Cookies.get(FakeToken.key) ? true : false;
     }
-    
+
     static getToken () {
         return Cookies.get(FakeToken.key)
     }
@@ -42,6 +46,7 @@ export class FakeToken {
         return Cookies.remove(FakeToken.key)
     }
 }
+
 
 
 

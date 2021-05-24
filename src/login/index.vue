@@ -46,8 +46,18 @@ export default {
       if (result.success) {
         //set cookie
         FakeToken.setToken(result.data.token);
-        //redirect
-        this.$router.push({ path: '/dashboard' });
+
+        //set user info
+        const userinfo = await this.$store.dispatch('user/getUserInfo', FakeToken.getToken());
+        if (userinfo.success) {
+          //add dynamic routes
+          this.$router.$addRoutes([...this.$store.state.user.routes]);
+          //redirect
+          this.$router.push({ path: '/dashboard' });
+        } else {
+          //warning
+          this.$message(userinfo.message);
+        }
 
       }
       else {

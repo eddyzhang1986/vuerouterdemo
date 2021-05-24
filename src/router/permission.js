@@ -1,30 +1,9 @@
-import VueRouter from 'vue-router'
 import { LoadingSvc, FakeToken } from '@/util';
 import { Message } from 'element-ui';
 import store from '../store'
 
 
-
-
-const routes = [
-    { path: '/', exact: true, redirect: '/login' },
-    { name: 'login', path: '/login', component: () => import('@/login/index.vue') }
-]
-
-
-
 export const enchance = (router) => {
-
-    router.$addRoutes = (params) => {
-        router.matcher = new VueRouter({
-            mode: 'hash'
-        }).matcher
-        const rts = [...routes, ...params]
-        for (let r of rts) {
-            router.addRoute(r)
-        }
-
-    }
 
     // GOOD
     router.beforeEach(async (to, from, next) => {

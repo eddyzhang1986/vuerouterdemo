@@ -18,6 +18,19 @@ const router = new VueRouter({
     routes: routes
 });
 
+//add addroutes methods
+router.$addRoutes = (params) => {
+    router.matcher = new VueRouter({
+        mode: 'hash'
+    }).matcher
+    const rts = [...routes, ...params]
+    for (let r of rts) {
+        router.addRoute(r)
+    }
+
+}
+
+
 //启用权限
 enchance(router);
 

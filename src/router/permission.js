@@ -36,7 +36,9 @@ export const enchance = (router) => {
                     } else {
 
                         //获取失败直接重定向到登录页面并弹出原因
-                        Message.message(result.message);
+                        //Message.$message(result.message);
+                        //console.log(Message,'Message')
+                        Message(result.message)
                         next({ name: 'login' });
 
                     }

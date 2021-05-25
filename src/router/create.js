@@ -25,11 +25,12 @@ const createRouter = (routes) => {
         let routes3 = [];
 
         for (let rts1 of routes1) {
-            if (rts1.name == '') {
-
+            let rts2 = routes2.find(r2 => r2.name === rts1.name)
+            if (rts2) {
                 //替换
+                routes3.push(rts2);
                 //删除
-
+                routes2.splice(routes2.indexOf(rts2), 1);
             } else {
                 routes3.push(rts1);
             }
@@ -37,6 +38,8 @@ const createRouter = (routes) => {
 
         //新的routes数组
         let routes4 = [...routes3, ...routes2]
+
+        console.log(routes4, 'routes4');
 
         //添加新的rts4数据
         for (let rts4 of routes4) {

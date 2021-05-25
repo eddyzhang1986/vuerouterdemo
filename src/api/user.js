@@ -26,10 +26,10 @@ export class FakeUser {
                     },
                     routes: [{
                         name: 'dashboard',//注意name和要替换地方一致
-                        meta: { requireAuth: true },
                         path: '/dashboard', component: () => import('@/dashboard/index.vue'),
+                        meta: { requireAuth: true },
                         children: [
-                            { name: 'dashboard-index', path: '/dashboard', exact: true, redirect: '/dashboard/module1' },
+                            { name: 'dashboard-index', path: '/dashboard', redirect: '/dashboard/module1', exact: true },
                             { path: '/dashboard/module1', component: () => import('@/dashboard/module1/index.vue') },
                             { path: '/dashboard/module2', component: () => import('@/dashboard/module2/index.vue') }
                         ]

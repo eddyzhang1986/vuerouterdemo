@@ -11,6 +11,7 @@ export const enchance = (router) => {
         console.log(to, 'to');
         console.log(from, 'from');
 
+        //meta导致的权限问题特别注意
         //判断是否需要用到
         if (to.name !== 'login') {
             //需要用到从后台读取的权限

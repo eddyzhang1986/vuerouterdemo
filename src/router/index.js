@@ -1,37 +1,18 @@
 
-import Vue from 'vue'
-import VueRouter from 'vue-router'
 import { enchance } from './permission';
+import createRouter from './create';
 
-
-Vue.use(VueRouter);
-
-
-
+//静态路由
 const routes = [
     { path: '/', exact: true, redirect: '/login' },
-    { name: 'login', path: '/login', component: () => import('@/login/index.vue') }
+    { name: 'login', path: '/login', component: () => import('@/login/index.vue') },
+    { path: '*', component: () => import('@/404/index.vue') }
 ]
 
-const router = new VueRouter({
-    mode: 'hash',
-    routes: routes
-});
+//初始化一个router
+const router = createRouter(routes);
 
-//add addroutes methods
-router.$addRoutes = (params) => {
-    router.matcher = new VueRouter({
-        mode: 'hash'
-    }).matcher
-    const rts = [...routes, ...params]
-    for (let r of rts) {
-        router.addRoute(r)
-    }
-
-}
-
-
-//启用权限
+//启用权限(增强路由功能)
 enchance(router);
 
 export default router;

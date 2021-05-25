@@ -31,8 +31,7 @@ export class FakeUser {
                             { path: '/dashboard/module1', component: () => import('@/dashboard/module1/index.vue') },
                             { path: '/dashboard/module2', component: () => import('@/dashboard/module2/index.vue') }
                         ]
-                    },
-                    { path: '*', component: () => import('@/404/index.vue') }],
+                    }],
                 }, message: 'login success'
             };
         }

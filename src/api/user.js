@@ -25,6 +25,7 @@ export class FakeUser {
                         nick: '我的昵称'
                     },
                     routes: [{
+                        name: 'dashboard',//注意name和要替换地方一致
                         path: '/dashboard', component: () => import('@/dashboard/index.vue'),
                         children: [
                             { name: 'dashboard-index', path: '/dashboard', exact: true, redirect: '/dashboard/module1' },

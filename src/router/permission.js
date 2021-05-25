@@ -12,7 +12,7 @@ export const enchance = (router) => {
         console.log(from, 'from');
 
         //判断是否需要用到
-        if (to.meta.requireAuth) {
+        if (to.name !== 'login') {
             //需要用到从后台读取的权限
             if (FakeToken.isAuthed()) {
                 //fetch routes from server

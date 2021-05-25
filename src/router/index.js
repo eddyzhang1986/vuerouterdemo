@@ -6,7 +6,7 @@ import createRouter from './create';
 const routes = [
     { path: '/', exact: true, redirect: '/login' },
     { name: 'login', path: '/login', component: () => import('@/login/index.vue') },
-    { name: 'dashboard', path: '/dashboard', meta: { requireAuth: true }, exact: true },//name占位无实际作用
+    { name: 'dashboard', path: '/dashboard', exact: true },//name占位无实际作用
     { path: '*', component: () => import('@/404/index.vue') }
 ]
 

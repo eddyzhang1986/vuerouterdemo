@@ -26,6 +26,7 @@ export class FakeUser {
                     },
                     routes: [{
                         name: 'dashboard',//注意name和要替换地方一致
+                        meta: { requireAuth: true },
                         path: '/dashboard', component: () => import('@/dashboard/index.vue'),
                         children: [
                             { name: 'dashboard-index', path: '/dashboard', exact: true, redirect: '/dashboard/module1' },
